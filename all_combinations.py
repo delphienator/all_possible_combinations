@@ -46,12 +46,12 @@ def write_to_csv(combination_list):
     with open('/home/devasc/lab-25/combinations.csv', mode='w') as csv_file:
         writer = csv.writer(csv_file)
 
-
-        nlen=len(combination_list)                  
-        for i in range(0, nlen,3):
-            row=[]
-            row.append(combination_list[i])
-            row.append(combination_list[i+1])
+                                                # Need to brake entire list to rows.
+        nlen=len(combination_list)              # Each row will represent the combination of elements from each list.   
+        for i in range(0, nlen,3):              # Here we go in cycle with step of 3 (number of input original lists for combinations)
+            row=[]                              
+            row.append(combination_list[i])     
+            row.append(combination_list[i+1])   
             row.append(combination_list[i+2])
             #print(row)
             writer.writerow(row)                # magic !!!
@@ -63,7 +63,7 @@ def write_to_csv(combination_list):
 
 a=['DES','3DES','AES-128']
 b=['DH2','DH5','DH14']
-c=['md5','sha','sha2']
+c=['md5','sha']
 
 
 new_list=generate_combinations(a,b,c)
